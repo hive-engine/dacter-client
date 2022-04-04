@@ -1,0 +1,40 @@
+{
+  "name": "dacter-client",
+  "version": "1.0.0",
+  "description": "DACTER client module for creating Hive accounts",
+  "main": "app.mjs",
+  "scripts": {
+    "start": "node app.mjs"
+  },
+  "keywords": [
+    "dacter",
+    "hive",
+    "accountcreation",
+    "hive-engine"
+  ],
+  "author": "Reazul Iqbal",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-xo": "^0.40.0",
+    "prettier": "2.6.2"
+  },
+  "dependencies": {
+    "@hapi/boom": "^9.1.4",
+    "@hapi/glue": "^8.0.0",
+    "@hiveio/dhive": "^1.2.0",
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
+    "fast-glob": "^3.2.11",
+    "joi": "^17.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hive-engine/dacter-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hive-engine/dacter-client/issues"
+  },
+  "homepage": "https://github.com/hive-engine/dacter-client#readme"
+}
