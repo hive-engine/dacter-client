@@ -1,11 +1,5 @@
 import { networkInterfaces } from "node:os";
-import {
-  Client,
-  PrivateKey,
-  cryptoUtils,
-  Signature,
-  DEFAULT_CHAIN_ID,
-} from "@hiveio/dhive";
+import { Client, PrivateKey, cryptoUtils, Signature } from "@hiveio/dhive";
 import axios from "axios";
 import {
   ACCOUNT,
@@ -14,6 +8,7 @@ import {
   SIGNING_PRIVATE_KEY,
   NODES,
   CHAIN_ID,
+  TEST_MODE,
 } from "./config.mjs";
 
 export const hiveClient = new Client(NODES, { chainId: CHAIN_ID });
@@ -29,10 +24,7 @@ export const isSignedWithActiveKey = async (
     const json = JSON.stringify(rawData);
 
     const pubActiveKey = Signature.fromString(signature)
-      .recover(
-        cryptoUtils.sha256(json),
-        DEFAULT_CHAIN_ID.toString() === CHAIN_ID ? "STM" : "TST"
-      )
+      .recover(cryptoUtils.sha256(json), TEST_MODE ? "TST" : "STM")
       .toString();
 
     validSignature = pubActiveKey === signingPublicKey;
